@@ -1,13 +1,18 @@
-
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Outlet } from 'react-router-dom'
 import './App.css'
-
+import {Header} from './components'
+import {Footer} from './components'
 function App() {
   return (
-    <>
-    <h1>This is Start of making a tent sewing's official Website</h1>
-    </>
+    <div className='bg-gray-400 min-h-screen flex flex-wrap content-between'>
+    <div className='w-full block'>
+    <Header />
+    <main>
+     < Outlet />
+    </main>
+    <Footer />
+    </div>
+  </div>
   )
 }
 
