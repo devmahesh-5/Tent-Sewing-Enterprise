@@ -8,12 +8,15 @@ import Input from "./Input";
 import Select from "./Select";
 import Logo from "./Logo";
 import Signup from "./Signup";
+import Achivementcard from "./Achivementcard"
+import Productform from "./forms/Productform";
+import RTE from "./RTE";
+import Productcard from "./Productcard";
+import Achivementform from "./forms/Achivementform";
 
 
 
 
 
 
-
-
-export { Header, Footer, About, Login, LogoutBtn, Button, Input, Select, Logo, Signup };
+export { Header, Footer, About, Login, LogoutBtn, Button, Input, Select, Logo, Signup, Achivementcard, Productform, RTE, Productcard, Achivementform };

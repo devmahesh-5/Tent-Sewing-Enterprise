@@ -14,11 +14,6 @@ function Header() {
             active : true
         },
         {
-            name:"About",
-            slug : "/about",
-            active : true
-        },
-        {
             name : "Products",
             slug : "/products",
             active : true

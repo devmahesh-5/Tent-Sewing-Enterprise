@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function Productcard({id,title,image}) {
+function Productcard({_id,title,image}) {
     return (
         <Link
-            to={`/product/${id}`}
+            to={`/product/${_id}`}
         >
             <div className='w-full bg-gray-100 rounded-xl p-4'>
             <div className='w-full justify-center mb-4'>
