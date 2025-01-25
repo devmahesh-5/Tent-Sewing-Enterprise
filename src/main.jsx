@@ -7,12 +7,14 @@ import { Provider } from 'react-redux'
 import Home from './pages/Home.jsx'
 import Product from './pages/Product.jsx'
 import Products from './pages/Products.jsx'
-import updateProduct from './pages/EditProduct.jsx'
-import addProduct from './pages/AddProduct.jsx'
+import Updateproduct from './pages/EditProduct.jsx'
+import AddProduct from './pages/AddProduct.jsx'
 import Achivements from './pages/Achivements.jsx'
 import AddAchivement from './pages/AddAchivement.jsx'
 import Login from './pages/Login.jsx'
 import SignUp from './pages/SignUp.jsx'
+import Achievement from './pages/Achievement.jsx'
+import UpdateAchivement from './pages/Updateachivement.jsx'
 const router = createBrowserRouter(  [
    {
     path : '/',
@@ -40,11 +42,11 @@ const router = createBrowserRouter(  [
       },
       {
         path : '/products/update-product/:id',
-        element : <updateProduct />
+        element : <Updateproduct />
       },
       {
-        path : '/products/add-product',
-        element : <addProduct />
+        path : '/products/create',
+        element : <AddProduct />
       },
       {
         path : '/achivements',
@@ -53,6 +55,14 @@ const router = createBrowserRouter(  [
       {
         path : '/achivements/add-achivement',
         element : <AddAchivement />
+      },
+      {
+        path : '/achivements/update-achivement/:id',
+        element : <UpdateAchivement />
+      },
+      {
+        path : '/achivements/:id',
+        element : <Achievement  />
       }
     ]
    }

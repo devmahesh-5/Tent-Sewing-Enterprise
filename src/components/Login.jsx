@@ -11,12 +11,12 @@ function Login() {
     const {register, handleSubmit} = useForm()
     const [error, setError] = useState(null)
 
-    const login = (data) => {
+    const login = async (data) => {
         setError(null)
         try {
-            const userSession = authService.loginUser(data);
+            const userSession = await authService.loginUser(data);
             if(userSession){
-                const userData = authService.getCurrentUser();
+                const userData = await authService.getCurrentUser();
                if (userData) {
                  dispatch(authLogin({userData}))
                }
@@ -40,7 +40,7 @@ function Login() {
             <p className="mt-2 text-center text-base text-black/60">
                 Don&apos;t have any account?&nbsp;
                 <Link
-                    to="/signup"
+                    to="/users/signup"
                     className="font-medium text-primary transition-all duration-200 hover:underline"
                 >
                     Sign Up

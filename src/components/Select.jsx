@@ -1,4 +1,4 @@
-import React, { useId } from 'react'
+import React, { forwardRef, useId } from 'react'
 
 function Select({
     options=[],
@@ -27,4 +27,4 @@ function Select({
     )
 }
 
-export default Select
+export default forwardRef(Select)

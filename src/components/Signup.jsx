@@ -5,20 +5,21 @@ import { useDispatch } from 'react-redux'
 import {Button, Input, Logo} from './index.js'
 import { useForm} from 'react-hook-form'
 import {login} from '../store/authSlice.js'
-import { useDispatch } from 'react-redux'
 function Signup() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
     const {register, handleSubmit} = useForm()
     const [error, setError] = useState(null)
-    const signUp = (data) => {
+    const signUp = async (data) => {
         setError(null)
         try {
-            const userSession = authService.registerUser(data);
+            
+            const userSession = await authService.registerUser(data);
             if(userSession){
-                const loginUser = authService.loginUser({email: data.email, password: data.password});
+                const loginUser = await authService.loginUser({email: data.email, password: data.password});
                 if(loginUser){
-                    const userData = authService.getCurrentUser();
+                    const userData = await authService.getCurrentUser();
+                    
                    if (userData) {
                      dispatch(login({userData}))
                    }
@@ -43,7 +44,7 @@ function Signup() {
                 <p className="mt-2 text-center text-base text-black/60">
                     Already have an account?&nbsp;
                     <Link
-                        to="/login"
+                        to="/users/login"
                         className="font-medium text-primary transition-all duration-200 hover:underline"
                     >
                         Sign In
@@ -88,6 +89,7 @@ function Signup() {
                             }
                         )}
                         />
+                       
                        <Button type="submit" className="w-full" >
                             Create Account
                         </Button>

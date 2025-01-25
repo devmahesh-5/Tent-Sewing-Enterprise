@@ -1,7 +1,12 @@
+import axios from "axios";
 export class Services {
-    async addProducts({title, description, price, category, status, image}){
+    async addProducts(formData){
         try {
-            const response = await axios.post('/api/v1/products/create',{title, description, price, category, status, image});
+            
+            const response = await axios.post('/api/v1/products/create', formData, {
+                headers: {
+                'Content-Type': 'multipart/form-data',
+            }});
     
             if (!response) {
                 throw new Error("Product Creation Failed");
@@ -9,7 +14,7 @@ export class Services {
     
             return response.data;
         } catch (error) {
-            throw new Error("Product Creation Failed");
+            throw new Error(error);
         }
 
     }
@@ -18,13 +23,12 @@ export class Services {
             const response = await axios.get('/api/v1/products/all-products');
     
             if (!response) {
-                throw new Error("Product Creation Failed");
+                throw new Error("Product fetching Failed");
             }
     
             return response.data;
         } catch (error) {
-            console.log("Product Creation Error", error);
-            throw new Error("Product Creation Failed");
+            throw new Error(error);
         }
     }
     async getProductByCategory(category){
@@ -35,17 +39,22 @@ export class Services {
         throw new Error("Product fetching Failed");
         
                 }
-    
+                console.log(response.data);
+                
                 return response.data
+                
         } catch (error) {
-            console.log("Product Creation Error", error);
-            
+            throw new Error(error);
         }
     }
 
-    async getProductById(id){
+    async getProductById(_id){
         try {
-            const response = await axios.get(`/api/v1/products/${id}`);
+            const response = await axios.get(`/api/v1/products/${_id}`,{
+                headers : {
+                    "Content-Type" : "application/json"
+                }
+            });
     
             if(!response){
                 throw new Error("Product fetching Failed");
@@ -53,8 +62,7 @@ export class Services {
     
                 return response.data
         } catch (error) {
-            console.log("Product fetching Error", error);
-            throw new Error("something went wrong while fetching product");
+            throw new Error(error);
             
         }
     }
@@ -74,9 +82,13 @@ export class Services {
         }
     }
 
-    async updateProduct(id, {title, description, price, category, status, image}){
+    async updateProduct(id, formData){
         try {
-            const response = await axios.post(`/api/v1/products/${id}`, {title, description, price, category, status, image});
+            const response = await axios.patch(`/api/v1/products/update-product/${id}`, formData,{
+                headers : {
+                    "Content-Type" : "multipart/form-data"
+                }
+            });
     
             if(!response){
                 throw new Error("Product Updation Failed");
@@ -84,27 +96,91 @@ export class Services {
     
             return response.data
         } catch (error) {
-            console.log("Product Updation Error", error);
-            throw new Error("something went wrong while updating product");
+            
+            throw new Error(error);
         }
     }
-    async addAchivements(){
+    async addAchivements(formData){
         try {
-            
+            const response = await axios.post('/api/v1/achivements/create',
+                formData,
+                {   
+                    withCredentials: true,
+                    headers : {
+                    "Content-Type" : "multipart/form-data"
+                }
+            }
+            );
+    
+            if (!response) {
+                throw new Error("Achivement Creation Failed");
+            }
+    
+            return response.data;
         } catch (error) {
-            console.log("achivement Creation Error", error);
-            throw new Error("something went wrong while creating ac");
+            throw new Error(error);
         }
     }
 
     async getAllAchivements(){
         try {
-            
+            const response = await axios.get('/api/v1/achivements/all-achivements');
+    
+            if (!response) {
+                throw new Error("Achivement fetching Failed");
+            }
+    
+            return response.data;
         } catch (error) {
-            console.log("achivement fetching Error", error);
-            throw new Error("something went wrong while fetching achivement");
+            throw new Error(error);
         }
     }
+    async getAchivementById(_id){
+        try {
+            const response = await axios.get(`/api/v1/achivements/${_id}`,{
+                headers : {
+                    "Content-Type" : "application/json"
+                }
+            });
+    
+            if(!response){
+                throw new Error("Achivement fetching Failed");
+                }
+    
+                return response.data
+        } catch (error) {
+            throw new Error(error);
+            
+        }
+    }
+
+    async deleteAchivement(id){
+        try {
+            const response = await axios.delete(`/api/v1/achivements/${id}`);
+    
+            if(!response){
+                throw new Error("Achivement deletion Failed");
+                }
+    
+                return response.data
+        } catch (error) {
+            throw new Error(error);
+        }
+    }
+
+     async updateAchivement (id, formData) {
+        try {
+          const response = await axios.patch(`/api/v1/achivements/update-achivement/${id}`, formData);
+    
+          if (!response) {
+            throw new Error("Achivement Updation Failed");
+          }
+    
+          return response.data;
+        } catch (error) {
+          throw new Error(error);
+        }
+      };
 }
 
 const services=new Services();

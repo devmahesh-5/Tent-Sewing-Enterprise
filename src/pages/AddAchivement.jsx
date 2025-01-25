@@ -1,8 +1,8 @@
 import React from 'react'
-
+import { Achivementform } from '../components'
 function AddAchivement() {
     return (
-        <h1> Add Achivement</h1>
+        <Achivementform />
     )
 }
 
