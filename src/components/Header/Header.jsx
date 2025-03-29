@@ -2,7 +2,7 @@ import React from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import LogoutBtn from './LogoutBtn';
-
+import {Logo} from '../index.js';
 function Header() {
   const navigate = useNavigate();
   const location = useLocation(); // Get the current location (path)
@@ -24,7 +24,7 @@ function Header() {
     <header className="bg-[#F5F5F5] shadow-md sticky top-0 z-50">
       <nav className="container mx-auto flex items-center justify-between px-6 py-4">
         {/* Logo */}
-        <div className="text-2xl font-bold text-[#333333]">TentExplorer</div>
+        <div className="text-2xl font-bold text-[#333333]"><Logo className='text-2xl font-bold text-blue-500'/></div>
 
         {/* Navigation Items */}
         <ul className="flex space-x-6">

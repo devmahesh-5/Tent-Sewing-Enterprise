@@ -8,7 +8,7 @@ const About = () => {
         className="relative w-full h-screen bg-cover bg-center flex items-center justify-center"
         style={{
           backgroundImage:
-            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/417784140_865329908925475_6221130497296561468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=Gu4_yDX31TkQ7kNvgHjsQA-&_nc_oc=Adi-HCdkFyoklL90DI5pKN-0y-TKlsR-x05O-wNhOzR0UtraaaceTA6AleQ-DTyqIe9H3bm5b9M36ouYpAdMbAjI&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=AHREUDYdLVTU3_T16dwO_qI&oh=00_AYBm_ETRZxYrmJQSfCP_V0moc2pWsThOkvTB1QPqywelQA&oe=679A591A')",
+            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/417784140_865329908925475_6221130497296561468_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=127cfc&_nc_ohc=6WpasJY11QIQ7kNvgGOjwGZ&_nc_oc=AdmVbDXan0A8wnBbNvA2Z9bd8P-mSz8SiY9vTRExhuUqaobRXMdwKa7MKTWfgu5t4Inz1hH56qI0Loy0Ld4KHZ1X&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=lYIZKQ18hmV1O6U356VV5g&oh=00_AYG9mY8ScaM71ryqQxoOYlBoD1C6IaxeaHfom0ibNzMJ1w&oe=67ED9FDA')",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -33,7 +33,7 @@ const About = () => {
         className="relative w-full min-h-[500px] bg-cover bg-center flex items-center"
         style={{
           backgroundImage:
-            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t1.6435-9/67206543_662635874147299_5469937006630928384_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=g-InxUAu1ikQ7kNvgFTdizZ&_nc_oc=AdiVwVT-sY4kDDc3jajn1JvAfeuUpA4jxOgBts_XzIXhNoA_qWuiWOWaKi1qISt1YfA8r0jxFKPxsqKnN8V4YRjN&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=AGqOaP-dD1KGWJjIr_4S1Hd&oh=00_AYBERP_E2YNPcpWeePn08BL-6f609vrwc0BT4FJGmzFU2w&oe=67BC15CD')",
+            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t39.30808-6/417688145_865329905592142_3167249267525267770_n.jpg?_nc_cat=107&ccb=1-7&_nc_sid=127cfc&_nc_ohc=VuGEO5Llx90Q7kNvgHIPIH5&_nc_oc=AdmVcD3oJFOSoP35We-9TFkN3cO3s1HlLxb7O5Wg8ydzq0pOlBjZrcHFSbKv9SLLF80Qv1obVtmtFpYTu0lLCEWE&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=Pe4eWliQL33LMksw9RL3AA&oh=00_AYGTRBBPuAyXO_f9i7k_L9h6ZR2zhMYIZbLDWoiu_TaTdA&oe=67EDA8F6')",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -53,7 +53,7 @@ const About = () => {
         className="relative w-full min-h-[500px] bg-cover bg-center flex items-center"
         style={{
           backgroundImage:
-            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t1.6435-9/57284501_608535152890705_6151360836888690688_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=833d8c&_nc_ohc=cPAy5WGr9BIQ7kNvgEMl8u7&_nc_oc=AdgMdwsYDwc4zeI6S1OT9yj5zaGOfbNTOTgBrILKT6e4vR3-l06zRaYk8xl3slu9Q8LXA4DuF9k6P-evhNEYPw4E&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=A5Xw3o24KKtZF7Gf1hEuQuo&oh=00_AYD0gfN3TxMakLCDwWZDbAf0K0gbAaJTq1rigw-qGPfUMg&oe=67BBF094')",
+            "url('https://scontent.fktm8-1.fna.fbcdn.net/v/t1.6435-9/156474039_1065461507198065_3662806743852533829_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=833d8c&_nc_ohc=j1CEjMMsdngQ7kNvgEhRlo5&_nc_oc=Adm1FMLgedi3qG2iXx2BIMmE6SrSotuU0F4pDurk3xr33V0-bDXOW-sTQT-O25nq2fiH94Jds6-9_wQnozj5iGQN&_nc_zt=23&_nc_ht=scontent.fktm8-1.fna&_nc_gid=kdCgAOZokW9cGXPMSWu7TQ&oh=00_AYGLz-MDf1JYapKUHWETvEPo-Zkhst9oQ7L_dW1Lt8dM1A&oe=680F2398')",
         }}
       >
         <div className="absolute inset-0 bg-black bg-opacity-50"></div>
@@ -70,7 +70,6 @@ const About = () => {
           <Link to="/achivements">
           <button
             className="bg-blue-600 hover:bg-blue-700 transition-all duration-300 transform hover:scale-105 text-white font-semibold py-2 px-6 rounded-lg shadow-lg"
-            n
           >
             Our Achievements
           </button>
