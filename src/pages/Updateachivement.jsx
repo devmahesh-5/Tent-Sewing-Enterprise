@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import services from '../services/config';
+import services from '../services/achievement';
 import { Achivementform } from '../components/index.js';
 function UpdateAchivement() {
     const slug = useParams();

@@ -1,9 +1,9 @@
 import axios from "axios";
 export class AuthService {
 
-    async registerUser({ fullName, email, password, role }) {
+    async registerUser({ fullName, email, password, role, phoneNumber }) {
         try {
-            const response = await axios.post('/api/v1/users/register', { fullName, email, password, role });
+            const response = await axios.post('/api/v1/users/register', { fullName, email, password, role, phoneNumber });
 
             if (!response) {
                 throw new Error(error);
@@ -25,7 +25,7 @@ export class AuthService {
             return response.data;
         } catch (error) {
             throw new Error(error);
-            
+
         }
     }
 
@@ -46,7 +46,7 @@ export class AuthService {
 
     async updatePassword({ oldPassword, newPassword }) {
         try {
-            const response = await axios.post('/api/v1/users/update-password', { oldPassword, newPassword });            
+            const response = await axios.post('/api/v1/users/update-password', { oldPassword, newPassword });
 
             if (!response) {
                 throw new Error(error);
@@ -55,7 +55,7 @@ export class AuthService {
             return response.data;
         } catch (error) {
             throw new Error(error);
-            }
+        }
     }
 
     async getCurrentUser() {
@@ -63,17 +63,17 @@ export class AuthService {
             const response = await axios.get('/api/v1/users/myprofile', {
                 withCredentials: true, // Use this to include cookies
             });
-    
+
             if (!response) {
                 throw new Error("Get User Failed");
             }
-    
+
             return response.data;
         } catch (error) {
             throw new Error(error);
         }
     }
-    
+
 }
 
 const authService = new AuthService();

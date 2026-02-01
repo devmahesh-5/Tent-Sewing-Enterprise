@@ -1,142 +1,47 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 import { Logo } from '../index';
 
 function Footer() {
   return (
-    <section className="relative overflow-hidden py-10 bg-[#F5F5F5] border-t-2 border-t-[#E0E0E0]">
-      <div className="relative z-10 mx-auto max-w-7xl px-4">
-        <div className="-m-6 flex flex-wrap">
-          <div className="w-full p-6 md:w-1/2 lg:w-5/12">
-            <div className="flex h-full flex-col justify-between">
-              <div className="mb-4 inline-flex items-center">
-                <Logo width="100px" />
-              </div>
-              <div>
-                <p className="text-sm text-[#333333]">
-                  &copy; Copyright 2025. All Rights Reserved by Mahesh Bhandari.
-                </p>
-              </div>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-[#333333]">
-                Tent Sewing Enterprises
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Features
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Pricing
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Affiliate Program
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Press Kit
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-2/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-[#333333]">
-                Contact Us
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Facebook
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Whatsapp
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Contact Us
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Customer Support
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div className="w-full p-6 md:w-1/2 lg:w-3/12">
-            <div className="h-full">
-              <h3 className="tracking-px mb-9 text-xs font-semibold uppercase text-[#333333]">
-                Legals
-              </h3>
-              <ul>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Terms &amp; Conditions
-                  </Link>
-                </li>
-                <li className="mb-4">
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    className="text-base font-medium text-[#333333] hover:text-[#4CAF50]"
-                    to="/"
-                  >
-                    Licensing
-                  </Link>
-                </li>
-              </ul>
-            </div>
-          </div>
+    <footer className="bg-gradient-to-br from-slate-100 via-blue-50 to-indigo-100 text-gray-800 border-t border-gray-200 py-12">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center space-y-6 md:space-y-0">
+          <motion.div
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="flex flex-col items-center md:items-start"
+          >
+            <Logo width="100px" className="mb-3" />
+            <p className="text-sm text-gray-600 text-center md:text-left max-w-xs">
+              &copy; {new Date().getFullYear()} Tent Sewing Enterprises. <br className="hidden md:block" />
+              All rights reserved.
+            </p>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-8 items-center"
+          >
+            {['Privacy Policy', 'Terms of Service', 'Contact'].map((link, index) => (
+              <motion.a
+                key={link}
+                href="#"
+                whileHover={{ scale: 1.05, color: '#4f46e5' }}
+                className="text-gray-700 hover:text-indigo-600 transition-colors duration-300 text-sm font-medium"
+              >
+                {link}
+              </motion.a>
+            ))}
+          </motion.div>
         </div>
       </div>
-    </section>
+    </footer>
   );
 }
 

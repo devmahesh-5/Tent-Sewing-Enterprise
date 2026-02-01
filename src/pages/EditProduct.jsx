@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom';
-import services from '../services/config';
+import services from '../services/product';
 import { Productform } from '../components/index.js';
 function EditProduct() {
     const slug = useParams();
@@ -10,7 +10,8 @@ function EditProduct() {
             if (slug) {
                 const product = await services.getProductById(slug.id);
                 if (product) {
-                    setProduct(product.data);
+                    console.log(product);
+                    setProduct(product.data.data);
                 }
             }
         })();

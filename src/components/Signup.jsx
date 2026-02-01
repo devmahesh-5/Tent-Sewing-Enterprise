@@ -1,46 +1,46 @@
-import React,{useState} from 'react'
+import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import authService from '../services/auth.js'
 import { useDispatch } from 'react-redux'
-import {Button, Input, Logo} from './index.js'
-import { useForm} from 'react-hook-form'
-import {login} from '../store/authSlice.js'
+import { Button, Input, Logo } from './index.js'
+import { useForm } from 'react-hook-form'
+import { login } from '../store/authSlice.js'
 function Signup() {
     const navigate = useNavigate()
     const dispatch = useDispatch()
-    const {register, handleSubmit} = useForm()
+    const { register, handleSubmit } = useForm()
     const [error, setError] = useState(null)
     const signUp = async (data) => {
         setError(null)
         try {
-            
+
             const userSession = await authService.registerUser(data);
-            if(userSession){
-                const loginUser = await authService.loginUser({email: data.email, password: data.password});
-                if(loginUser){
+            if (userSession) {
+                const loginUser = await authService.loginUser({ email: data.email, password: data.password });
+                if (loginUser) {
                     const userData = await authService.getCurrentUser();
-                    
-                   if (userData) {
-                     dispatch(login({userData}))
-                   }
-               navigate('/');
-            } 
-        }
-     } catch (error) {
+
+                    if (userData) {
+                        dispatch(login({ userData }))
+                    }
+                    navigate('/');
+                }
+            }
+        } catch (error) {
             setError(error.message)
         }
     }
     return (
         <div
-        className='flex items-center justify-center w-full'
-    >
-        <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
-            <div className="mb-2 flex justify-center">
-                <span className="inline-block w-full max-w-[100px]">
-                    <Logo width="100%" />
-                </span>
-            </div>
-            <h2 className="text-center text-2xl font-bold leading-tight text-blue-600">Sign up to create account</h2>
+            className='flex items-center justify-center w-full'
+        >
+            <div className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}>
+                <div className="mb-2 flex justify-center">
+                    <span className="inline-block w-full max-w-[100px]">
+                        <Logo width="100%" />
+                    </span>
+                </div>
+                <h2 className="text-center text-2xl font-bold leading-tight text-blue-600">Sign up to create account</h2>
                 <p className="mt-2 text-center text-base text-black/60">
                     Already have an account?&nbsp;
                     <Link
@@ -53,50 +53,60 @@ function Signup() {
                 {error && <p className="text-red-600 mt-8 text-center">{error}</p>}
                 <form onSubmit={handleSubmit(signUp)} className="mt-8">
                     <div className="space-y-5">
-                        <Input 
-                        type="text"
-                        lable="Full Name: "
-                        placeholder="Name"
-                        {...register('fullName',
-                            {
-                                required:true
-                            }
-                        )}
-                        
-                        />
-                        <Input 
-                        type="email"
-                        lable="Email: "
-                        placeholder="Enter your Email"
-                        {...register('email',
-                            {
-                                required:true,
-                                validate: {
-                                    matchPattern:(value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
-                        "Email address must be a valid address",
+                        <Input
+                            type="text"
+                            lable="Full Name: "
+                            placeholder="Name"
+                            {...register('fullName',
+                                {
+                                    required: true
                                 }
-                            }
-                        )}
-                        
+                            )}
+
                         />
-                        <Input 
-                        type="password"
-                        lable="Password: "
-                        placeholder="Password"
-                        {...register('password',
-                            {
-                                required:true
-                            }
-                        )}
+                        <Input
+                            type="email"
+                            lable="Email: "
+                            placeholder="Enter your Email"
+                            {...register('email',
+                                {
+                                    required: true,
+                                    validate: {
+                                        matchPattern: (value) => /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(value) ||
+                                            "Email address must be a valid address",
+                                    }
+                                }
+                            )}
+
                         />
-                       
-                       <Button type="submit" className="w-full" >
+                        <Input
+                            type="password"
+                            lable="Password: "
+                            placeholder="Password"
+                            {...register('password',
+                                {
+                                    required: true
+                                }
+                            )}
+                        />
+                        <Input
+                            type="tel"
+                            lable="Phone Number: "
+                            placeholder="Enter your Phone Number"
+                            {...register('phoneNumber',
+                                {
+                                    required: true
+                                }
+                            )}
+                        />
+
+                        <Button type="submit" className="w-full" >
                             Create Account
                         </Button>
-                        </div>
+                    </div>
                 </form>
+            </div>
         </div>
-    </div>
     )
 }
 
