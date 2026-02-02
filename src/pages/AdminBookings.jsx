@@ -130,8 +130,8 @@ function AdminBookings() {
                                         </td>
                                         <td className="px-6 py-4">
                                             <span className={`px-3 py-1 rounded-full text-xs font-semibold ${booking.status === 'confirmed' ? 'bg-green-100 text-green-800' :
-                                                    booking.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
-                                                        'bg-red-100 text-red-800'
+                                                booking.status === 'pending' ? 'bg-yellow-100 text-yellow-800' :
+                                                    'bg-red-100 text-red-800'
                                                 }`}>
                                                 {booking.status}
                                             </span>
@@ -149,22 +149,38 @@ function AdminBookings() {
                                             ) : 'N/A'}
                                         </td>
                                         <td className="px-6 py-4">
-                                            <div className="flex gap-2">
+                                            <div className="flex gap-2 flex-wrap">
                                                 {booking.status === 'pending' && (
                                                     <>
                                                         <button
                                                             onClick={() => updateBookingStatus(booking._id, 'confirmed')}
-                                                            className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs"
+                                                            className="bg-green-500 hover:bg-green-600 text-white px-3 py-1 rounded text-xs font-semibold"
                                                         >
-                                                            Approve
+                                                            Confirm
                                                         </button>
                                                         <button
                                                             onClick={() => updateBookingStatus(booking._id, 'cancelled')}
-                                                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs"
+                                                            className="bg-red-500 hover:bg-red-600 text-white px-3 py-1 rounded text-xs font-semibold"
                                                         >
-                                                            Reject
+                                                            Cancel
                                                         </button>
                                                     </>
+                                                )}
+                                                {booking.status === 'confirmed' && (
+                                                    <button
+                                                        onClick={() => updateBookingStatus(booking._id, 'delivered')}
+                                                        className="bg-blue-500 hover:bg-blue-600 text-white px-3 py-1 rounded text-xs font-semibold"
+                                                    >
+                                                        Mark Delivered
+                                                    </button>
+                                                )}
+                                                {booking.status === 'delivered' && (
+                                                    <button
+                                                        onClick={() => updateBookingStatus(booking._id, 'returned')}
+                                                        className="bg-gray-500 hover:bg-gray-600 text-white px-3 py-1 rounded text-xs font-semibold"
+                                                    >
+                                                        Mark Returned
+                                                    </button>
                                                 )}
                                             </div>
                                         </td>

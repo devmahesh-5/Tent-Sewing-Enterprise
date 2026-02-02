@@ -18,6 +18,7 @@ function Header() {
     { name: 'Products', slug: '/products', active: true },
     { name: 'Achievements', slug: '/achivements', active: true },
     { name: 'Trek Guide', slug: '/trek-guide', active: true },
+    { name: 'My Bookings', slug: '/my-bookings', active: authStatus && !isAdmin },
     { name: 'Add Product', slug: '/products/create', active: isAdmin },
     { name: 'Add Achievement', slug: '/achivements/add-achivement', active: isAdmin },
     { name: 'Admin Settings', slug: '/admin/settings', active: isAdmin },
@@ -41,7 +42,7 @@ function Header() {
           whileTap={{ scale: 0.95 }}
           className="cursor-pointer"
         >
-          <Logo className='text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent' />
+          <Logo className='text-2xl font-bold bg-gradient-to-r from-indigo-700 via-blue-600 to-purple-700 bg-clip-text text-transparent' />
         </motion.div>
 
         {/* Mobile Menu Button */}
@@ -59,20 +60,20 @@ function Header() {
         </button>
 
         {/* Desktop Navigation */}
-        <ul className="hidden md:flex space-x-2 items-center">
+        <ul className="hidden md:flex items-center space-x-1">
           {navItems.map((item) =>
             item.active ? (
               <motion.li
-                key={item.slug}
+                key={item.name}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
                 <button
                   onClick={() => navigate(item.slug)}
-                  className={`${location.pathname === item.slug
-                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white shadow-lg'
-                    : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50'
-                    } px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium`}
+                  className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${location.pathname === item.slug
+                    ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white shadow-md'
+                    : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-700'
+                    }`}
                 >
                   {item.name}
                 </button>
@@ -81,7 +82,7 @@ function Header() {
           )}
           {authStatus && (
             <motion.li whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <LogoutBtn className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-4 py-2 rounded-full transition-all duration-300 text-sm font-medium shadow-md" />
+              <LogoutBtn />
             </motion.li>
           )}
         </ul>
@@ -105,8 +106,8 @@ function Header() {
                           setMobileMenuOpen(false);
                         }}
                         className={`${location.pathname === item.slug
-                          ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white'
-                          : 'text-gray-700 hover:bg-gradient-to-r hover:from-blue-50 hover:to-purple-50'
+                          ? 'bg-gradient-to-r from-indigo-600 to-purple-600 text-white'
+                          : 'text-gray-700 hover:bg-indigo-50 hover:text-indigo-700'
                           } w-full text-left px-4 py-3 rounded-lg transition-all duration-300 font-medium`}
                       >
                         {item.name}

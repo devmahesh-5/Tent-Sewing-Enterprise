@@ -18,6 +18,9 @@ import UpdateAchivement from './pages/Updateachivement.jsx'
 import TrekGuide from './pages/TrekGuide.jsx'
 import AdminSettings from './pages/AdminSettings.jsx'
 import AdminBookings from './pages/AdminBookings.jsx'
+import MyBookings from './pages/MyBookings.jsx'
+import TermsAndConditions from './pages/TermsAndConditions.jsx'
+import PrivacyPolicy from './pages/PrivacyPolicy.jsx'
 
 const router = createBrowserRouter([
   {
@@ -79,6 +82,18 @@ const router = createBrowserRouter([
       {
         path: '/admin/bookings',
         element: <AdminBookings />
+      },
+      {
+        path: '/my-bookings',
+        element: <MyBookings />
+      },
+      {
+        path: '/terms',
+        element: <TermsAndConditions />
+      },
+      {
+        path: '/privacy-policy',
+        element: <PrivacyPolicy />
       }
     ]
   }

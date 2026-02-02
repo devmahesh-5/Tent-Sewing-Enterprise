@@ -118,18 +118,18 @@ function Product() {
                 />
                 {isOwner && (
                     <div className="absolute right-8 top-8 flex space-x-4">
-                        <Link to={`/products/update-product/${product._id}`}>
-                            <Button bgColor="bg-green-600 hover:bg-green-700 text-white" className="px-5 py-2 rounded-md">
-                                Edit
-                            </Button>
+                        <Link
+                            to={`/products/update-product/${product._id}`}
+                            className="bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-700 hover:to-purple-700 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 font-semibold"
+                        >
+                            Edit
                         </Link>
-                        <Button
-                            bgColor="bg-red-600 hover:bg-red-700 text-white"
+                        <button
                             onClick={deleteProduct}
-                            className="px-5 py-2 rounded-md"
+                            className="bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white px-6 py-3 rounded-full shadow-lg transition-all duration-300 font-semibold"
                         >
                             Delete
-                        </Button>
+                        </button>
                     </div>
                 )}
             </div>
